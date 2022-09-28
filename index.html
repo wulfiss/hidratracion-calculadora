@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <label for="intial">Peso inicial: </label>
+    <input type="number" name="initial" id="initialW" value="1">
+    <label for="final">Peso Final: </label>
+    <input type="number" name="final" id="finalW" value="2">
+    <p>Diferencia: <span id="diffWeight"></span></p>
+    <p>Porcentaje: <span id="percentaje"></span></p>
+    
+    <div class="btn">
+        <button type="button"  class="btns" id="$one">Calcular</button>
+        <button type="button" class="btns" id="$two">Delete</button>
+    </div>
+
+    <div id="divResult"></div>
+
+
+    <template id="templateDiv">
+        <p>Peso inicial: <span id="pInitial"></span></p>
+        <p>Peso final: <span id="pFinal"></span></p>
+        <p>Diferencia: <span id="diffWeighte"></span></p>
+        <p>Porcentaje: <span id="percentajea"></span></p>
+    </template>
+</body>
+</html>
