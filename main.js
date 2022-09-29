@@ -1,14 +1,13 @@
 (function hidrata(){
     let $button = document.querySelector('.btn');
-    let diffWeight = document.querySelector('#diffWeight');
-    let percentage = document.querySelector('#percentaje');
+
     let divResult = document.querySelector('#divResult');
     let template = document.querySelector('#templateDiv').content;
 
     $button.addEventListener('click', (e) =>{
         if(e.target.id == '$one'){
-            calcular();
             divResult.appendChild(template);
+            calcular();
         }
     })
 
@@ -29,6 +28,9 @@
     }
     
     function render(diffe, perce){
+        let diffWeight = document.querySelector('#diffWeight');
+        let percentage = document.querySelector('#percentaje');
+        
         diffWeight.textContent = diffe.toFixed(2) + 'gr.';
         percentage.textContent = perce.toFixed(2) + '%';
     }
