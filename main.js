@@ -20,6 +20,20 @@
         return{initialW, finalW}
     }
 
+    function render(arr){
+        let divResult = document.querySelector('#divResult');
+        let template = document.querySelector('#templateDiv').content;
+
+        divResult.innerHTML = "";
+          
+        for (const roaster of arr) {
+            let tempClone = template.cloneNode(true);
+            let newDiv = document.createElement('div');
+            newDiv.appendChild(tempClone);
+            divResult.appendChild(newDiv);
+        };
+    }
+
     let chickenOne =  new Chicken(2.5, 2.7);
 
     let arrChicken = [chickenOne];
@@ -27,14 +41,14 @@
     let $button = document.querySelector('.btn');
 
 
-    let divResult = document.querySelector('#divResult');
-    let template = document.querySelector('#templateDiv').content;
+
 
 
     $button.addEventListener('click', (e) =>{
         if(e.target.id == '$one'){
             addChicken(input()['initialW'], input()['finalW'], arrChicken);
             console.log(arrChicken);
+            render(arrChicken);
         }
     })
 
