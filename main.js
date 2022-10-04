@@ -21,18 +21,42 @@
     }
 
     function render(arr){
+        
+        let hidrataRender = document.querySelector('#averageHidrata');
+        hidrataRender.textContent = average(arr)['average'];
+        
         let divResult = document.querySelector('#divResult');
-        let template = document.querySelector('#templateDiv').content;
-
+        let template = document.querySelector('#templateDiv');
+       
         divResult.innerHTML = "";
           
         for (const roaster of arr) {
-            let tempClone = template.cloneNode(true);
+            let tempClone = template.content.cloneNode(true);
             let newDiv = document.createElement('div');
+            
+
+            tempClone.querySelector('#pInitial').textContent = roaster.initial;
+            tempClone.querySelector('#pFinal').textContent = roaster.final;
+            tempClone.querySelector('#diffWeight').textContent = roaster.diff;
+            tempClone.querySelector('#percentaje').textContent = roaster.hidrata;
+
             newDiv.appendChild(tempClone);
             divResult.appendChild(newDiv);
         };
     }
+
+    function average(arr){
+        let average = 0;
+        let sum = 0;
+        for (const roaster of arr){
+            sum += Number(roaster.hidrata);
+        }
+
+        average = (sum / arr.length).toFixed(2);
+
+        return {average}
+    }
+
 
     let chickenOne =  new Chicken(2.5, 2.7);
 
