@@ -16,8 +16,10 @@
     function input(){
         let initialW = document.querySelector('#initialW').value;
         let finalW = document.querySelector('#finalW').value;
+        let $button = document.querySelector('.btns');
+        let container = document.querySelector('.container');
         
-        return{initialW, finalW}
+        return{initialW, finalW, $button, container}
     }
 
     function render(arr){
@@ -29,19 +31,30 @@
         let template = document.querySelector('#templateDiv');
        
         divResult.innerHTML = "";
-          
+        let y = 0;
         for (const roaster of arr) {
-            let tempClone = template.content.cloneNode(true);
-            let newDiv = document.createElement('div');
             
+            let tempClone = template.content.cloneNode(true);
+            let newDiv = document.createElement('div'); 
+            newDiv.setAttribute('data-key', `${y}`);         
 
             tempClone.querySelector('#pInitial').textContent = roaster.initial;
             tempClone.querySelector('#pFinal').textContent = roaster.final;
             tempClone.querySelector('#diffWeight').textContent = roaster.diff;
             tempClone.querySelector('#percentaje').textContent = roaster.hidrata;
 
+
+            let delButton = document.createElement('button');
+            delButton.setAttribute('id', '$two');
+            delButton.setAttribute('type', 'button');
+            delButton.setAttribute('class', 'btns');
+            delButton.setAttribute('data-key', `${y}`);   
+            delButton.textContent = 'X';
+
             newDiv.appendChild(tempClone);
+            newDiv.appendChild(delButton);
             divResult.appendChild(newDiv);
+            y++;
         };
     }
 
@@ -62,18 +75,23 @@
 
     let arrChicken = [chickenOne];
 
-    let $button = document.querySelector('.btn');
 
+    input()['container'].addEventListener('click', (e) =>{
+        
+        let key;
 
-
-
-
-    $button.addEventListener('click', (e) =>{
         if(e.target.id == '$one'){
             addChicken(input()['initialW'], input()['finalW'], arrChicken);
-            console.log(arrChicken);
             render(arrChicken);
+            
+        } else if(e.target.id == '$two' && (key = e.target.getAttribute('data-key'))){
+            console.log(key);
+            let divDelete = document.querySelector(`div[data-key="${key}"]`);
+            divDelete.remove();
         }
+        input();
     })
+
+    return{input}
 
 })();
