@@ -88,6 +88,8 @@
             console.log(key);
             let divDelete = document.querySelector(`div[data-key="${key}"]`);
             divDelete.remove();
+            arrChicken.splice(key, 1);
+            console.log(arrChicken);
         }
         input();
     })
