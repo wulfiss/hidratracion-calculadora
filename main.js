@@ -18,8 +18,9 @@
         let finalW = document.querySelector('#finalW').value;
         let $button = document.querySelector('.btns');
         let container = document.querySelector('.container');
+        let addForm = document.querySelector('#addChickenForm');
         
-        return{initialW, finalW, $button, container}
+        return{initialW, finalW, $button, container, addForm}
     }
 
     function render(arr){
@@ -90,10 +91,12 @@
         if(e.target.id == '$one'){
             addChicken(input()['initialW'], input()['finalW'], arrChicken);
             render(arrChicken);
-            
+            input()['addForm'].style.display = 'none';
         } else if(e.target.id == '$two' && (key = e.target.getAttribute('data-key'))){
             arrChicken.splice(key, 1);
             render(arrChicken);
+        } else if(e.target.id == '$three'){
+            input()['addForm'].style.display = 'block';
         }
         input();
     })
