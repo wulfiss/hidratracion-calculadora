@@ -4,27 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculadora de absorción de agua</title>
     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
 </head>
 <body>
     <div class="container">
-        <label for="intial">Peso inicial: </label>
-        <input type="number" name="initial" id="initialW" value="1">
-        <label for="final">Peso Final: </label>
-        <input type="number" name="final" id="finalW" value="2">
-
-        <div class="btn">
-            <button type="button" class="btns" id="$one">Calcular</button>
-        </div>
+        <header>
+            <h2>Calculadora de absorción de agua</h2>
+        </header>
+        <form action="">
+            <ul>
+                <li>
+                    <label for="intial">Peso Inicial(kg): </label>
+                    <input type="number" name="initial" id="initialW" value="1" placeholder="ej: 2.444">
+                </li>
+                <li>
+                    <label for="final">Peso Final(kg): </label>
+                    <input type="number" name="final" id="finalW" value="2" placeholder="ej: 2.469">
+                </li>        
+                <li>
+                    <div class="btn">
+                        <button type="button" class="btns" id="$one">Calcular</button>
+                    </div>
+                </li>
+            </ul>
+        </form>
         
         <div id="averageHidrataDiv" style="display: none;">
             <p>Hidratacion promedio: <span id="averageHidrata"></span>%</p>
         </div>
         <div id="divResult"></div>
 
-
+        <div>
+            <button type="button" class="addChicken" id="$three">+</button>
+        </div>
+        
         <template id="templateDiv">
             <p>Peso inicial: <span id="pInitial"></span> KG</p>
             <p>Peso final: <span id="pFinal"></span> KG</p>
