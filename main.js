@@ -25,8 +25,15 @@
     function render(arr){
         
         let hidrataRender = document.querySelector('#averageHidrata');
-        hidrataRender.textContent = average(arr)['average'];
-        
+        let hidrataRenderDiv = document.querySelector('#averageHidrataDiv');
+
+        if(arr.length != 0){
+            hidrataRenderDiv.style.display = 'block';
+            hidrataRender.textContent = average(arr)['average'];
+        }else if(arr.length == 0){
+            hidrataRenderDiv.style.display = 'none';
+        }
+
         let divResult = document.querySelector('#divResult');
         let template = document.querySelector('#templateDiv');
        
@@ -85,8 +92,6 @@
             render(arrChicken);
             
         } else if(e.target.id == '$two' && (key = e.target.getAttribute('data-key'))){
-            //let divDelete = document.querySelector(`div[data-key="${key}"]`);
-            //divDelete.remove();
             arrChicken.splice(key, 1);
             render(arrChicken);
         }
